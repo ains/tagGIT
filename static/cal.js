@@ -86,7 +86,11 @@ $(document).ready(function () {
             }
         });
 
-        $.post("/create", { dates: JSON.stringify(commitDates) });
+        $.post("/create", {
+            committerName: $("#committer-name").val(),
+            committerEmail: $("#committer-email").val(),
+            dates: JSON.stringify(commitDates)
+        });
     });
 
 });
