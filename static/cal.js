@@ -75,7 +75,9 @@ $(document).ready(function () {
         })
         .on("click", highlightSquare);
 
-    $("#create_button").click(function () {
+    $("#create-button").click(function (e) {
+        e.preventDefault();
+
         var commitDates = [];
         svg.selectAll("rect.day").each(function (d) {
             var currentCycle = this.currentCycle;
