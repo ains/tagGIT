@@ -6,7 +6,7 @@ $(document).ready(function () {
         isMouseDown = true;
     }).mouseup(function () {
             isMouseDown = false;
-    });
+        });
 
     var m = [29, 20, 20, 19], // top right bottom left margin
         w = 1240 - m[1] - m[3], // width
@@ -78,12 +78,14 @@ $(document).ready(function () {
     $("#create-button").click(function (e) {
         e.preventDefault();
 
-        var commitDates = [];
+        var commitDates = {};
         svg.selectAll("rect.day").each(function (d) {
             var currentCycle = this.currentCycle;
             if (currentCycle != undefined && currentCycle > 0) {
-                commitDates.push((d.getTime() / 1000) + 86400)
+                var unixTime = (d.getTime() / 1000) + 86400;
+                commitDates[String(unixTime)] = currentCycle;
             }
+
         });
 
         $.post("/create", {
