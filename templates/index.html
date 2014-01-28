@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
+    <style type="text/css">
+        #body {
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        svg {
+            font-size: 10px;
+            shape-rendering: crispEdges;
+        }
+
+        .day {
+            fill: #eee;
+            stroke: #000;
+            stroke-opacity: .1;
+        }
+
+        .month {
+            fill: none;
+            stroke: #000;
+            stroke-width: 2px;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Static navbar -->
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>
+
+
+<div class="container">
+
+    <h1>Project Name</h1>
+    <hr/>
+
+
+    <div id="graph" style="height: 200px;">
+    </div>
+
+    <button class="btn btn-primary btn-lg" id="create_button">Create</button>
+
+
+</div>
+<!-- /container -->
+
+<script type="text/javascript" src="/static/cal.js">
+</script>
+
+</body>
+</html>
