@@ -6,10 +6,76 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:700&text=tagGIT' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
     <style type="text/css">
-        #body {
-            padding-top: 20px;
+
+        body, .tagline, h1, h2, h3, h4, h5, h6 {
+            font-family: "Roboto", "Open Sans", "Helvetica Neue", "Verdana", sans-serif;
+        }
+
+        .main {
+            margin: 0;
+            width: 100%;
+        }
+
+        #title {
+            padding: 60px 0;
+        }
+
+        header {
             text-align: center;
+        }
+
+        h1 {
+            font-family: "Source Sans Pro", "Menlo", "Roboto", "Lato", "Helvetica Neue", sans-serif;
+            font-weight: 700;
+            font-size: 4em;
+            color: #44a340;
+        }
+
+        h1 .tag {
+            color: #8cc665;
+        }
+
+        .tagline {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #5E5E5E;
+        }
+
+        section {
+            padding: 50px 50px;
+            border-top: 1px solid #EEE;
+            overflow: hidden;
+        }
+
+        section header h3 {
+            margin-top: 0;
+        }
+
+        section header h3 small {
+            color: #D5D5D5;
+        }
+
+        section article {
+            padding-top: 20px;
+        }
+
+        #tag {
+
+        }
+
+        #git {
+            background-color: #2E455C;
+        }
+
+        #git header h3 {
+            color: #FFF;
+        }
+
+        footer {
+            background-color: #1D1E1F;
         }
 
         svg {
@@ -28,54 +94,98 @@
             stroke: #000;
             stroke-width: 2px;
         }
+
+        form {
+            text-align: center;
+        }
+
+        form label {
+            color: #FFF;
+            font-weight: 500;
+            font-size: 1.1em;
+            text-transform: uppercase;
+        }
+
+        form[role="form"] input {
+            background-color: #223446;
+            color: #FAFAFA;
+            border: 1px solid #34495e;
+            font-size: 0.9em;
+        }
+
+        form[role="form"] input:focus {
+            border: 1px solid #34495e;
+            webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 4px rgba(56, 106, 146, 0.6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 4px rgba(56, 106, 146, 0.6);
+        }
+
+        #create-button {
+            padding: 5px 50px;
+            margin: 20px 0 10px 0;
+            border-radius: 99em;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
     </style>
 </head>
 
 <body>
-<!-- Static navbar -->
-<div class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-            </ul>
-        </div>
-        <!--/.nav-collapse -->
-    </div>
-</div>
 
+<div class="container main">
 
-<div class="container">
+    <header id="title">
+        <h1><span class="tag">tag</span>GIT</h1>
+        <!--h2 class="tagline">sketch out your commits</h2-->
+    </header>
 
-    <h1>Project Name</h1>
-    <hr/>
+    <section id="tag" class="row">
+        <header>
+            <h3>TAG <br /><small>Draw out your commit summary here</small></h3>
+        </header>
 
+        <article>
+            <div id="graph">
+            </div>
+        </article>
+    </section>
 
-    <div id="graph" style="height: 200px;">
-    </div>
+    <section id="git" class="row">
+        <header>
+            <h3>GIT <br /><small>Configure the repo and download</small></h3>
+        </header>
 
-    <form role="form">
-        <div class="form-group">
-            <label for="committer-name">Commiter Name:</label>
-            <input type="text" name="commiterName" class="form-control" id="committer-name" placeholder="Committer Name">
-        </div>
-        <div class="form-group">
-            <label for="committer-email">Email address:</label>
-            <input type="email" class="form-control" id="committer-email" name="committerEmail"
-                   placeholder="Committer Email">
-        </div>
+        <article class="col-sm-4 col-sm-offset-4">
+            <form role="form" class="form-horizontal">
+                <div class="form-group">
+                    <label for="committer-name" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="commiterName" class="form-control" id="committer-name" placeholder="Committer Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="committer-email" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="committer-email" name="committerEmail"
+                           placeholder="Committer Email">
+                    </div>
+                </div>
 
-        <button class="btn btn-primary btn-lg" id="create-button">Create</button>
-    </form>
+                <button class="btn btn-primary btn-sm" id="create-button">Create</button>
+            </form>
+        </article>
+    </section>
+
+    <footer class="row">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </footer>
 
 </div>
 <!-- /container -->
