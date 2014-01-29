@@ -7,6 +7,7 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/static/animate.css"/>
+    <link rel="stylesheet" href="/static/eleganticons.css"/>
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:700&text=tagGIT' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
     <style type="text/css">
@@ -21,7 +22,7 @@
         }
 
         #title {
-            padding: 60px 0;
+            padding: 35px 0;
         }
 
         header {
@@ -142,6 +143,52 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
+        footer {
+            padding: 35px 0;
+            height: 150px;
+        }
+
+        footer .credit {
+            color: #58595C;
+        }
+
+        footer a {
+            color: #40803D;
+            -webkit-transition: color ease-out 200ms;
+            -moz-transition: color ease-out 200ms;
+            -o-transition: color ease-out 200ms;
+            transition: color ease-out 200ms;
+        }
+
+        footer a:hover {
+            color: #FFF;
+            -webkit-transition: color ease-in 200ms;
+            -moz-transition: color ease-in 200ms;
+            -o-transition: color ease-in 200ms;
+            transition: color ease-in 200ms;
+        }
+
+        footer .credit.design {
+            text-align: right;
+        }
+
+        footer .links a {
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        footer .design .links a {
+            padding-right: 0;
+        }
+
+        footer .dev .links a {
+            padding-left: 0;
+        }
+
+        footer .links a:hover {
+            text-decoration: none;
+        }
+
     </style>
 </head>
 
@@ -151,7 +198,7 @@
 
     <header id="title">
         <h1 class="ani"><span class="tag">tag</span>GIT</h1>
-        <!--h2 class="tagline">sketch out your commits</h2-->
+        <h2 class="tagline ani">sketch out your commits</h2>
     </header>
 
     <section id="tag" class="row">
@@ -192,14 +239,40 @@
     </section>
 
     <footer class="row">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        <div class="credit dev col-sm-3 col-sm-offset-1">
+            <p class="ani">Hacked together, with nothing but the best intentions, by <a href="http://ains.co">Ainsley Escore-Jones</a></p>
+            <p class="ani links">
+                <a href="http://uk.linkedin.com/in/ainsej">
+                    <i class="social_linkedin_circle"></i>
+                </a>
+                <a href="http://twitter.com/ainsej">
+                    <i class="social_twitter_circle"></i>
+                </a>
+                <a href="http://ains.co">
+                    <i class="icon_link"></i>
+                </a>
+                <a href="mailto:ainsley@thesandpit.com">
+                    <i class="icon_mail"></i>
+                </a>
+            </p>
+        </div>
+        <div class="credit design col-sm-3 col-sm-offset-4">
+            <p class="ani">Pixels and associated sugar hurriedly crafted by <a href="http://benchin.co">Ben Chin</a></p>
+            <p class="ani links">
+                <a href="http://uk.linkedin.com/in/chinben">
+                    <i class="social_linkedin_circle"></i>
+                </a>
+                <a href="http://twitter.com/mben_chin">
+                    <i class="social_twitter_circle"></i>
+                </a>
+                <a href="http://benchin.co">
+                    <i class="icon_link"></i>
+                </a>
+                <a href="benjamin.chin12@imperial.ac.uk">
+                    <i class="icon_mail"></i>
+                </a>
+            </p>
+        </div>
     </footer>
 
 </div>
