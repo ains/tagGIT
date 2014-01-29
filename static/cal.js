@@ -10,7 +10,7 @@ $(document).ready(function () {
 
 
     var m = [29, 20, 20, 19], // top right bottom left margin
-        w = 1240 - m[1] - m[3], // width
+        w = 1079 - m[1] - m[3], // width
         h = 180 - m[0] - m[2], // height
         z = 20; // cell size
 
@@ -33,7 +33,7 @@ $(document).ready(function () {
             .attr("class", "year")
             .style("width", w + m[1] + m[3] + "px")
             .style("height", h + m[0] + m[2] + "px")
-            .style("display", "inline-block")
+            .style("display", "block")
             .append("svg:svg")
             .attr("width", w + m[1] + m[3])
             .attr("height", h + m[0] + m[2])

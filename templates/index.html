@@ -6,6 +6,7 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/animate.css"/>
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:700&text=tagGIT' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
     <style type="text/css">
@@ -46,12 +47,13 @@
 
         section {
             padding: 50px 50px;
-            border-top: 1px solid #EEE;
+            border-top: 1px solid #D6D6D6;
             overflow: hidden;
         }
 
         section header h3 {
             margin-top: 0;
+            font-weight: 700;
         }
 
         section header h3 small {
@@ -64,6 +66,14 @@
 
         #tag {
 
+        }
+
+        #tag header h3 {
+            color: #2E455C;
+        }
+
+        #tag header h3 small {
+            color: #666F77;            
         }
 
         #git {
@@ -81,6 +91,11 @@
         svg {
             font-size: 10px;
             shape-rendering: crispEdges;
+        }
+
+        #graph .year {
+            margin: 0 auto;
+            padding-top: 20px;
         }
 
         .day {
@@ -115,7 +130,7 @@
 
         form[role="form"] input:focus {
             border: 1px solid #34495e;
-            webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 4px rgba(56, 106, 146, 0.6);
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 4px rgba(56, 106, 146, 0.6);
             box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 4px rgba(56, 106, 146, 0.6);
         }
 
@@ -135,27 +150,27 @@
 <div class="container main">
 
     <header id="title">
-        <h1><span class="tag">tag</span>GIT</h1>
+        <h1 class="ani"><span class="tag">tag</span>GIT</h1>
         <!--h2 class="tagline">sketch out your commits</h2-->
     </header>
 
     <section id="tag" class="row">
-        <header>
+        <header class="ani">
             <h3>TAG <br /><small>Draw out your commit summary here</small></h3>
         </header>
 
-        <article>
+        <article class="ani">
             <div id="graph">
             </div>
         </article>
     </section>
 
     <section id="git" class="row">
-        <header>
+        <header class="ani">
             <h3>GIT <br /><small>Configure the repo and download</small></h3>
         </header>
 
-        <article class="col-sm-4 col-sm-offset-4">
+        <article class="ani col-sm-4 col-sm-offset-4">
             <form role="form" class="form-horizontal">
                 <div class="form-group">
                     <label for="committer-name" class="col-sm-2 control-label">Name</label>
@@ -190,7 +205,24 @@
 </div>
 <!-- /container -->
 
-<script type="text/javascript" src="/static/cal.js">
+<script type="text/javascript" src="/static/cal.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+        $('.ani').each(function(i) {
+            $(this)
+                .css({
+                        '-webkit-animation-delay': (i * 0.3) + 's',
+                        '-moz-animation-delay': (i * 0.3) + 's',
+                        '-o-animation-delay': (i * 0.3) + 's',
+                        'animation-delay': (i * 0.3) + 's',
+                    })
+                .addClass('animated fadeInUp');
+        });
+    });
+    
 </script>
 
 </body>
