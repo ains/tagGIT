@@ -7,7 +7,7 @@ import uuid
 
 app = Flask(__name__)
 GENERATED_REPO_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'repos')
-OUTPUT_FILE = 'dates.txt'
+OUTPUT_FILE = 'draw.txt'
 
 
 @app.route('/')
@@ -30,7 +30,7 @@ def create_repo():
     subprocess.call(['git', 'init'], cwd=repo_dir)
     for (unix_time, strength) in dates.items():
         date = datetime.datetime.utcfromtimestamp(int(unix_time))
-        date_str = date.strftime('%d-%m-%y')
+        date_str = date.isoformat()
 
         commit_count = min(strength, 4)
         if commit_count == 4:
@@ -38,11 +38,11 @@ def create_repo():
 
         for i in range(0, commit_count):
             with open(os.path.join(repo_dir, OUTPUT_FILE), 'a') as f:
-                f.write(date_str)
+                f.write('.')
 
             subprocess.call(['git', 'add', OUTPUT_FILE], cwd=repo_dir)
             subprocess.call(
-                ['git', 'commit', '-a', '--author', commit_email, '--date', date.isoformat(), '-m', date_str],
+                ['git', 'commit', '-a', '--author', commit_email, '--date', date_str, '-m', '.'],
                 cwd=repo_dir
             )
 
