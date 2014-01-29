@@ -153,7 +153,7 @@
             color: #58595C;
         }
 
-        footer a {
+        footer a, .ribbon-green a {
             color: #40803D;
             -webkit-transition: color ease-out 200ms;
             -moz-transition: color ease-out 200ms;
@@ -161,12 +161,17 @@
             transition: color ease-out 200ms;
         }
 
-        footer a:hover {
+        footer a:hover, .ribbon-green a:hover {
             color: #FFF;
             -webkit-transition: color ease-in 200ms;
             -moz-transition: color ease-in 200ms;
             -o-transition: color ease-in 200ms;
             transition: color ease-in 200ms;
+        }
+
+        footer .source {
+            text-align: center;
+            color: #DDD;
         }
 
         footer .credit.design {
@@ -187,14 +192,71 @@
         }
 
         footer .links a:hover {
+            color: #32A82D;
             text-decoration: none;
+        }
+
+        /* Quick ribbon */
+        .ribbon-wrapper-green {
+          width: 90px;
+          height: 105px;
+          overflow: hidden;
+          position: absolute;
+          top: 0px;
+          right: 0px;
+        }
+
+        .ribbon-green {
+          font-size: 13px;
+          font-weight: 700;
+          color: #333;
+          text-align: center;
+          text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+          -webkit-transform: rotate(45deg);
+          -moz-transform:    rotate(45deg);
+          -ms-transform:     rotate(45deg);
+          -o-transform:      rotate(45deg);
+          position: relative;
+          padding: 7px 0;
+          left: -5px;
+          top: 15px;
+          width: 130px;
+          background-color: #BFDC7A; 
+          -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+          -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+          box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+        }
+
+        .ribbon-green a:hover {
+            color: #5AB156;
+            text-decoration: none;
+        }
+
+      /*  .ribbon-green:before, .ribbon-green:after {
+          content: "";
+          border-top:   3px solid #6e8900;   
+          border-left:  3px solid transparent;
+          border-right: 3px solid transparent;
+          position:absolute;
+          bottom: -3px;
+        }*/
+
+        .ribbon-green:before {
+          left: 0;
+        }
+        .ribbon-green:after {
+          right: 0;
         }
 
     </style>
 </head>
 
 <body>
-
+<div class="ribbon-wrapper-green">
+        <div class="ribbon-green">
+            <a href="http://ains.co/blog/hacking-github-contributions.html">BLOG POST</a>
+        </div>
+    </div>
 <div class="container main">
 
     <header id="title">
@@ -257,7 +319,11 @@
                 </a>
             </p>
         </div>
-        <div class="credit design col-sm-3 col-sm-offset-4">
+        <div class="source col-sm-4">
+            <br />
+            <p class="ani"><a href="http://github.com/ainsej/tagGIT">View source on GitHub</a></p>
+        </div>
+        <div class="credit design col-sm-3">
             <p class="ani">Pixels and associated sugar hurriedly crafted by <a href="http://benchin.co">Ben Chin</a></p>
             <p class="ani links">
                 <a href="http://uk.linkedin.com/in/chinben">
