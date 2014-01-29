@@ -56,14 +56,15 @@ def create_repo():
             )
 
     #Create archive of generated repository
-    archive_file = os.path.join(ARCHIVE_DIR, '{}.tar'.format(repo_name))
+    archive_filename = '{}.tar'.format(repo_name)
+    archive_file = os.path.join(ARCHIVE_DIR, archive_filename)
     print(repo_dir)
     subprocess.call(['tar', 'cf', archive_file, '-C', GENERATED_REPO_DIR, repo_name])
 
     #Cleanup and delete repo
     shutil.rmtree(repo_dir)
 
-    return repo_name
+    return archive_filename
 
 
 if __name__ == '__main__':

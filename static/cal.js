@@ -57,7 +57,7 @@ $(document).ready(function () {
         var highlightSquare = function (d) {
             if (firstClick) {
                 clearChart();
-                
+
                 firstClick = false;
                 return;
             }
@@ -100,32 +100,32 @@ $(document).ready(function () {
                 }
             })
             .on("click", highlightSquare);
+
+        $("#create-button").click(function (e) {
+            e.preventDefault();
+
+            var commitDates = {};
+            svg.selectAll("rect.day").each(function (d) {
+                var currentCycle = this.currentCycle;
+                if (currentCycle != undefined && currentCycle > 0) {
+                    var unixTime = (d.getTime() / 1000) + 86400;
+                    commitDates[String(unixTime)] = currentCycle;
+                }
+
+            });
+
+            $.post("/create", {
+                committerName: $("#committer-name").val(),
+                committerEmail: $("#committer-email").val(),
+                dates: JSON.stringify(commitDates)
+            }).done(function (repo_file) {
+                    document.location.href = '/static/repos/' + repo_file;
+                });
+        });
     }
 
     $.getJSON("/static/helloworld.json", function (data) {
         drawChart(data);
-    });
-
-    $("#create-button").click(function (e) {
-        e.preventDefault();
-
-        var commitDates = {};
-        svg.selectAll("rect.day").each(function (d) {
-            var currentCycle = this.currentCycle;
-            if (currentCycle != undefined && currentCycle > 0) {
-                var unixTime = (d.getTime() / 1000) + 86400;
-                commitDates[String(unixTime)] = currentCycle;
-            }
-
-        });
-
-        $.post("/create", {
-            committerName: $("#committer-name").val(),
-            committerEmail: $("#committer-email").val(),
-            dates: JSON.stringify(commitDates)
-        }).done(function (repo_name) {
-                document.location.href = '/static/repos/' + repo_name + '.tar';
-            });
     });
 
 });
