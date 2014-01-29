@@ -1,6 +1,7 @@
 var isMouseDown = false;
 
 $(document).ready(function () {
+    var firstClick = true;
 
     $('body').mousedown(function () {
         isMouseDown = true;
@@ -26,6 +27,7 @@ $(document).ready(function () {
     var startWeek = new Date(startDate);
     startWeek.setDate(diff);
 
+
     var drawChart = function (initialData) {
         var svg = d3.select("#graph").selectAll(".year")
             .data([endDate])
@@ -40,12 +42,26 @@ $(document).ready(function () {
             .attr("class", "RdYlGn")
             .append("svg:g");
 
+        var clearChart = function () {
+            svg.selectAll("rect.day").each(function (d) {
+                this.currentCycle = 0;
+                this.style.fill = cycleColours[this.currentCycle];
+            });
+        }
+
         svg.append("svg:text")
             .attr("transform", "translate(-6," + z * 3.5 + ")rotate(-90)")
             .attr("text-anchor", "middle")
             .text("Draw");
 
         var highlightSquare = function (d) {
+            if (firstClick) {
+                clearChart();
+                
+                firstClick = false;
+                return;
+            }
+
             if (this.currentCycle === undefined) {
                 this.currentCycle = 1;
             } else {
