@@ -92,7 +92,9 @@ $(document).ready(function () {
             committerName: $("#committer-name").val(),
             committerEmail: $("#committer-email").val(),
             dates: JSON.stringify(commitDates)
-        });
+        }).done(function (repo_name) {
+                document.location.href = '/static/repos/' + repo_name + '.tar';
+            });
     });
 
 });
