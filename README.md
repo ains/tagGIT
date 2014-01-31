@@ -3,7 +3,8 @@ tagGIT
 
 Welcome to the tagGIT repository.
 
-tagGIT lets you draw and export a Git repository to generate your desired Contribution Graph
+tagGIT lets you draw and export a Git repository to generate your desired Contribution Calendar.
+There's a hosted version over at [http://taggit.ains.co](http://taggit.ains.co) if you want to have a play.
 
 Getting Started
 ====
