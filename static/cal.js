@@ -85,7 +85,7 @@ $(document).ready(function () {
             .attr("y",function (d) {
                 return day(d) * z;
             }).style("fill", function (d) {
-                var dayOffset = (d.getTime() - startWeek.getTime()) / 86400000;
+                var dayOffset = Math.floor((d.getTime() - startWeek.getTime()) / 86400000);
                 if (initialData[dayOffset]) {
                     this.currentCycle = initialData[dayOffset];
                 } else {
